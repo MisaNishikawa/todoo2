@@ -47,8 +47,9 @@ class Model
     }
     public function delete($data)
     {
-        $stmt = $this->db_manager->dbh->prepare('DELETE FROM' . $this->table . 'WHERE id = ?');
-        return $stmt->excute($data);
+        $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
+        // $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
+        return $stmt->execute($data);
     }
 
 }

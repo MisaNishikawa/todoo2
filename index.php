@@ -66,7 +66,7 @@ $tasks = $todo->getAll();
                         <div class="text-right d-flex justify-content-end">
                             <a href="edit.php" class="btn text-success">EDIT</a>
                             <form action="delete.php" method="post">
-                                <input type="hidden" name="id" value="">
+                                <input type="hidden" name="id" value="<?= $task['id'];?>">
                                 <button type="submit" class="btn text-danger">DELETE</button>
                             </form>
                         </div>

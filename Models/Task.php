@@ -59,4 +59,10 @@ class Task extends Model
         $stmt = $this->db_manager->dbh->prepare('INSERT INTO ' . $this->table . ' (title, contents, created) VALUES (?, ?, ?)');
         $stmt->execute($data);
     }
+
+    public function update($data)
+    {
+        $stmt = $this->db_manager->dbh->prepare('UPDATE ' . $this->table . ' SET title =?, contents = ? where id = ?');
+        $stmt->execute($data);
+    }
 }

@@ -1,4 +1,11 @@
 <?php
+    require_once('Models/Task.php');
+    require_once('function.php');
+
+    $id = $_GET['id'];
+    // var_dump($id);die;
+
+    $task = (new Task())->get($id);
 
 ?>
 <!DOCTYPE html>

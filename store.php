@@ -1,13 +1,16 @@
 <?php
 //このページは、新規作成のページ(create)で何か書いてpostボタンを押したときのページ
-//(でも最後にリダイレクトするから、一覧ページ(index)に行く)
+//(最後にリダイレクトするから、一覧ページ(index)に行く)
 
 
 //やること
 //データの受け取り。
-// DBに保存（dbconnect.phpに接続するのが書いてるから持ってくる）
+// DBに保存
 // 一覧ページにリダイレクト
 
+
+//ファイル読み込み(データベースに接続されるのも書いてる)
+require_once('Models/Task.php');
 
 
 
@@ -17,20 +20,19 @@ $title = $_POST['title'];
 
 //詳細
  $contents = $_POST['contents'];
-//中身確認
-//  var_dump($contents);
-//  die;
+
+//日付を取ってくる関数？
+ $currentTime = date("Y/m/d H:i:s");
+//   var_dump($currentTime);
+//   die;
 
 
 
 //DBに保存
-//まずデータベースに接続（dbconnect.phpに接続するのが書いてるから持ってくる）
-require_once('dbconnect.php');
-//！！！ここ微妙！！！SQL（データベースを管理する言語）の実行をする
-$stmt = $dbh->prepare('INSERT INTO tasks (title, contents) VALUES (?, ?)');  //準備
-$stmt->execute([$title, $contents]); //?を変数に置き換えてSQLを実行
-
+$task = new Task();
+$task->create([$title, $contents,$currentTime]);
 
 
 //リダイレクト
 header('Location: index.php');
+exit;

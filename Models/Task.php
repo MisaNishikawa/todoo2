@@ -59,4 +59,16 @@ class Task extends Model
         $stmt = $this->db_manager->dbh->prepare('INSERT INTO ' . $this->table . ' (title, contents, created) VALUES (?, ?, ?)');
         $stmt->execute($data);
     }
+
+
+// ()の中を検索する関数?
+    public function findByTitle($title)
+    {
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE title LIKE ?');
+        $stmt->execute($title);
+        $tasks = $stmt->fetchAll();
+        return $tasks;
+    }
+
+
 }

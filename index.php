@@ -43,7 +43,9 @@ $tasks = $todo->getAll();
                         </li>
                         <li class="nav-item">
                             <form class="form-inline">
-                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                                aria-label="Search" name="title">
+                                <!-- 検索した文字の受け取り↑ -->
                                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                             </form>
                         </li>

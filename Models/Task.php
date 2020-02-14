@@ -60,6 +60,7 @@ class Task extends Model
         $stmt->execute($data);
     }
 
+<<<<<<< HEAD
 
 // ()の中を検索する関数?
     public function findByTitle($title)
@@ -71,4 +72,11 @@ class Task extends Model
     }
 
 
+=======
+    public function update($data)
+    {
+        $stmt = $this->db_manager->dbh->prepare('UPDATE ' . $this->table . ' SET title =?, contents = ? where id = ?');
+        $stmt->execute($data);
+    }
+>>>>>>> master
 }

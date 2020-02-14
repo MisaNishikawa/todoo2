@@ -8,3 +8,53 @@ DBに保存
 一覧ページにリダイレクト
 
 ＜検索＞
+
+作成の流れ
+
+　1,やることを洗い出す
+　2,こまめに確認する
+ 3,自分が何をしてるか意識
+
+
+検索ボタンをクリックすると
+タイトルに検索欄に入力した文字を含む
+taskだけ画面に表示する
+
+
+検索した文字を受け取る処理が必要
+画面になにか出す→やることは、
+1.dbからデータを取得
+　1,dbの接続
+　2,SQLを実行
+    -データを取得するSQL
+     -タイトルに検索した文字を含むデータを取得したい
+    
+2,取得したデータを画面に表示する
+
+
+Getを使う（データベースを操作しない場合はGetと考える）
+
+
+
+$tasks = $todo->getAll()
+$title = $_GET['title'];
+
+$task 
+
+task.phpに行って（sqlの実行）
+
+    public function findByTitle($data)←取ってきたい引数
+    {
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE title LIKE ?');
+        $stmt->execute($data);
+        $tasks = $stmt->fetchAll();
+        return $tasks;
+    }
+
+お問い合わせフォームと一緒
+
+
+
+
+
+index.phpに行って

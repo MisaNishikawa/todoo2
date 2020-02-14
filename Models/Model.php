@@ -45,5 +45,11 @@ class Model
         // return === 関数の呼び出し元に、値を返す
         return $tasks;
     }
+    public function delete($data)
+    {
+        $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
+        // $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
+        return $stmt->execute($data);
+    }
 
 }

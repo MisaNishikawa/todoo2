@@ -7,11 +7,27 @@ $todo = new Task();
 // echo '<pre>';
 // var_dump($todo);die;    
 
-$tasks = $todo->getAll();
 // echo '<pre>';
 // var_dump($tasks);die;
 
+// isset()
+if(isset($_GET['title']))
+{
+    $title = $_GET['title'];
+    $tasks = $todo->findByTitle(["%$title%"]);
+} else {
+    $tasks = $todo->getAll();
+    
+}
+// var_dump($title);
+// die;
+
+
+//sql実行
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,22 +46,22 @@ $tasks = $todo->getAll();
                 <nav class="navbar navbar-dark bg-dark">
                     <a href="index.php" class="navbar-brand">Todo</a>
                     <ul class="nav nav-pills">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <span class="nav-link text-light">
                                 ログインユーザーのメールアドレス
                             </span>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link text-light" href="create.php">Create</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                                 <a class="nav-link text-light" href="signinform.php">サインイン</a>
                                 <a class="nav-link text-light" href="signout.php">サインアウト</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <form class="form-inline">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                                aria-label="Search" name="title">
+                                name="title">
                                 <!-- 検索した文字の受け取り↑ -->
                                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                             </form>

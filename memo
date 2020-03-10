@@ -34,27 +34,3 @@ taskだけ画面に表示する
 
 Getを使う（データベースを操作しない場合はGetと考える）
 
-
-
-$tasks = $todo->getAll()
-$title = $_GET['title'];
-
-$task 
-
-task.phpに行って（sqlの実行）
-
-    public function findByTitle($data)←取ってきたい引数
-    {
-        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE title LIKE ?');
-        $stmt->execute($data);
-        $tasks = $stmt->fetchAll();
-        return $tasks;
-    }
-
-お問い合わせフォームと一緒
-
-
-
-
-
-index.phpに行って

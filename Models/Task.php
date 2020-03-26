@@ -61,7 +61,7 @@ class Task extends Model
     }
 
 
-// ()の中を検索する関数?
+// ()の中を検索する関数
     public function findByTitle($title)
     {
         $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE title LIKE ?');

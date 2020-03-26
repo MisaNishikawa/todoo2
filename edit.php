@@ -1,4 +1,6 @@
 <?php
+
+//EDITボタン後の編集ページ
     require_once('Models/Task.php');
     require_once('function.php');
 
@@ -40,6 +42,7 @@
                         <label for="contents">Contents</label>
                         <textarea class="form-control" name="contents" id="contents" cols="30" rows="10"><?= $task['contents'] ?></textarea>
                     </div>
+                    //
                     <div class="form-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="image">

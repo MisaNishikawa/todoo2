@@ -4,12 +4,12 @@
 
 
 //やること
-//データの受け取り。
+//データの受け取り
 // DBに保存
 // 一覧ページにリダイレクト
 
 
-//ファイル読み込み(データベースに接続されるのも書いてる)
+//ファイル読み込み
 require_once('Models/Task.php');
 
 
@@ -21,7 +21,7 @@ $title = $_POST['title'];
 //詳細
  $contents = $_POST['contents'];
 
-//日付を取ってくる関数？
+//日付を取ってくる関数
  $currentTime = date("Y/m/d H:i:s");
 //   var_dump($currentTime);
 //   die;

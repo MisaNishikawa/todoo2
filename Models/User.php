@@ -1,5 +1,7 @@
 <?php
 
+//使用していません
+
 require_once('Model.php');
 
 class User extends Model
